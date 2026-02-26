@@ -75,7 +75,7 @@ function App() {
 				vectorLayer,
 			],
 			view: new View({
-				center: fromLonLat([116.4074, 39.9042]), // 北京坐标
+				center: fromLonLat([115.03, 35.76]), // 濮阳坐标
 				zoom: 5,
 			}),
 		})
