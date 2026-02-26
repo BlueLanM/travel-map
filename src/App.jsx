@@ -248,52 +248,66 @@ function App() {
 			const handleClick = (e) => {
 				const target = e.target
 				
+				// 防止触摸设备同时触发 touch 和 click
+				e.preventDefault()
+				e.stopPropagation()
+				
 				// 关闭按钮
 				if (target.classList.contains('popup-closer')) {
-					e.stopPropagation()
 					window.closePopup()
 					return
 				}
 				
 				// 图片预览
 				if (target.dataset.action === 'preview') {
-					e.stopPropagation()
 					window.previewImage(target.dataset.src)
 					return
 				}
 				
 				// 上一张
 				if (target.dataset.action === 'prev' || target.classList.contains('gallery-prev')) {
-					e.stopPropagation()
 					window.changeImage(-1)
 					return
 				}
 				
 				// 下一张
 				if (target.dataset.action === 'next' || target.classList.contains('gallery-next')) {
-					e.stopPropagation()
 					window.changeImage(1)
 					return
 				}
 				
 				// 点击圆点
 				if (target.dataset.action === 'dot') {
-					e.stopPropagation()
 					window.setImageIndex(parseInt(target.dataset.index))
 					return
 				}
 			}
 			
-			// 同时绑定 click 和 touchend 事件
-			element.addEventListener('click', handleClick)
-			element.addEventListener('touchend', handleClick)
+			// 处理触摸事件（移动端）
+			const handleTouch = (e) => {
+				// 只处理单点触摸
+				if (e.touches && e.touches.length > 1) return
+				handleClick(e)
+			}
+			
+			// 检测是否为触摸设备
+			const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+			
+			if (isTouchDevice) {
+				element.addEventListener('touchstart', handleTouch, { passive: false })
+			} else {
+				element.addEventListener('click', handleClick)
+			}
 			
 			element.style.display = 'block'
 			
 			// 清理函数
 			return () => {
-				element.removeEventListener('click', handleClick)
-				element.removeEventListener('touchend', handleClick)
+				if (isTouchDevice) {
+					element.removeEventListener('touchstart', handleTouch)
+				} else {
+					element.removeEventListener('click', handleClick)
+				}
 			}
 		} else {
 			element.style.display = 'none'
