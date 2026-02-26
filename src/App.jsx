@@ -76,7 +76,7 @@ function App() {
 			],
 			view: new View({
 				center: fromLonLat([115.03, 35.76]), // 濮阳坐标
-				zoom: 5,
+				zoom: 4,
 			}),
 		})
 
