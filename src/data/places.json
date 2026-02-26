@@ -1,0 +1,280 @@
+{
+	"places": [
+		{
+			"id": 1,
+			"name": "濮阳",
+			"coords": [
+				115.03,
+				35.76
+			],
+			"description": "家乡",
+			"images": [
+				{
+					"url": "/travel-map/images/home.jpg",
+					"caption": "扶余路"
+				}
+			],
+			"markerColor": "#FF5252"
+		},
+		{
+			"id": 2,
+			"name": "丽江&香格里拉",
+			"coords": [
+				102.71,
+				25.04
+			],
+			"description": "云南",
+			"images": [
+				{
+					"url": "/travel-map/images/yunnan1.jpg",
+					"caption": "玉龙雪山"
+				},
+				{
+					"url": "/travel-map/images/yunnan2.jpg",
+					"caption": "蓝月谷"
+				},
+				{
+					"url": "/travel-map/images/yunnan3.jpg",
+					"caption": "虎跳峡"
+				},
+				{
+					"url": "/travel-map/images/yunnan4.jpg",
+					"caption": "独克宗古城"
+				},
+				{
+					"url": "/travel-map/images/yunnan5.jpg",
+					"caption": "丽江转角"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "澳門",
+			"coords": [
+				113.54,
+				22.19
+			],
+			"description": "Macau",
+			"images": [
+				{
+					"url": "/travel-map/images/macau1.jpg",
+					"caption": "澳门赌场&一个很好看的场景"
+				},
+				{
+					"url": "/travel-map/images/macau2.jpg",
+					"caption": "澳门"
+				}
+			]
+		},
+		{
+			"id": 4,
+			"name": "香港",
+			"coords": [
+				114.17,
+				22.32
+			],
+			"description": "HONGKONG",
+			"images": [
+				{
+					"url": "/travel-map/images/hongkong1.jpg",
+					"caption": "维多利亚港&落日飞车"
+				},
+				{
+					"url": "/travel-map/images/hongkong2.jpg",
+					"caption": "天星小轮"
+				},
+				{
+					"url": "/travel-map/images/hongkong3.jpg",
+					"caption": "富豪雪糕"
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "珠海",
+			"coords": [
+				113.57,
+				22.27
+			],
+			"description": "珠海",
+			"images": [
+				{
+					"url": "/travel-map/images/zhuhai.jpg",
+					"caption": "珠海长隆"
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "厦门",
+			"coords": [
+				118.08,
+				24.47
+			],
+			"description": "厦门",
+			"images": [
+				{
+					"url": "/travel-map/images/xiamen1.jpg",
+					"caption": "厦门"
+				},
+				{
+					"url": "/travel-map/images/xiamen2.jpg",
+					"caption": "鼓浪屿"
+				},
+				{
+					"url": "/travel-map/images/xiamen3.jpg",
+					"caption": "海边"
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "上海",
+			"coords": [
+				121.47,
+				31.23
+			],
+			"description": "上海",
+			"images": [
+				{
+					"url": "/travel-map/images/shanghai1.jpg",
+					"caption": "经典三件套"
+				},
+				{
+					"url": "/travel-map/images/shanghai2.jpg",
+					"caption": "外滩"
+				}
+			]
+		},
+		{
+			"id": 8,
+			"name": "杭州",
+			"coords": [
+				120.15,
+				30.28
+			],
+			"description": "杭州",
+			"images": [
+				{
+					"url": "/travel-map/images/hangzhou1.jpg",
+					"caption": "西湖"
+				},
+				{
+					"url": "/travel-map/images/hangzhou2.jpg",
+					"caption": "三潭映月"
+				},
+				{
+					"url": "/travel-map/images/hangzhou3.jpg",
+					"caption": "西湖"
+				}
+			]
+		},
+		{
+			"id": 9,
+			"name": "绍兴",
+			"coords": [
+				120.58,
+				30.03
+			],
+			"description": "绍兴",
+			"images": [
+				{
+					"url": "/travel-map/images/shaoxing.jpg",
+					"caption": "绍兴"
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "湖州",
+			"coords": [
+				120.09,
+				30.89
+			],
+			"description": "湖州",
+			"images": [
+				{
+					"url": "/travel-map/images/huzhou.jpg",
+					"caption": "湖州"
+				}
+			]
+		},
+		{
+			"id": 11,
+			"name": "日本",
+			"coords": [
+				139.65,
+				35.68
+			],
+			"description": "日本",
+			"images": [
+				{
+					"url": "/travel-map/images/Japan1.jpg",
+					"caption": "大阪环球影城"
+				},
+				{
+					"url": "/travel-map/images/Japan2.jpg",
+					"caption": "天守阁"
+				},
+				{
+					"url": "/travel-map/images/Japan3.jpg",
+					"caption": "东京浅草寺"
+				},
+				{
+					"url": "/travel-map/images/Japan4.jpg",
+					"caption": "明治神宫入口"
+				}
+			]
+		},
+		{
+			"id": 12,
+			"name": "郑州",
+			"coords": [
+				113.62,
+				34.74
+			],
+			"description": "郑州",
+			"images": []
+		},
+		{
+			"id": 13,
+			"name": "南京",
+			"coords": [
+				118.80,
+				32.05
+			],
+			"description": "南京",
+			"images": [
+				{
+					"url": "/travel-map/images/nanjing.heic",
+					"caption": "鸡鸣寺"
+				}
+			]
+		},
+		{
+			"id": 14,
+			"name": "新乡",
+			"coords": [
+				113.93,
+				35.30 
+			],
+			"description": "新乡",
+			"images": []
+		},
+		{
+			"id": 15,
+			"name": "广州",
+			"coords": [
+				113.26,
+				23.13
+			],
+			"description": "广州",
+			"images": [
+				{
+					"url": "/travel-map/images/guangzhou.jpg",
+					"caption": "广州塔"
+				}
+			]
+		}
+	]
+}
