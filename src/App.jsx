@@ -371,7 +371,7 @@ function App() {
 	return (
 		<div className="app-container">
 			<div className="header">
-				<h1>🗺️ 我的旅行地图</h1>
+				<h1>LanM旅行地图</h1>
 				<p>点击地图标记查看详情</p>
 			</div>
 
