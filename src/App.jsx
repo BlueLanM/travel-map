@@ -90,7 +90,7 @@ function App() {
 		const overlay = new Overlay({
 			element: popupElement,
 			positioning: 'bottom-center',
-			stopEvent: false,
+			stopEvent: true,
 			offset: [0, -50],
 			autoPan: false,
 		})
@@ -211,21 +211,21 @@ function App() {
 				
 				element.innerHTML = `
 					<div class="popup-content">
-						<button class="popup-closer" onclick="window.closePopup()">×</button>
+						<button class="popup-closer">×</button>
 						<h3>${selectedMarker.name}</h3>
 						<div class="image-gallery">
 							<div class="gallery-main">
-								<img src="${currentImg.url}" alt="${selectedMarker.name}" class="popup-image" onclick="window.previewImage('${currentImg.url}')" />
+								<img src="${currentImg.url}" alt="${selectedMarker.name}" class="popup-image" data-action="preview" data-src="${currentImg.url}" />
 								${hasMultiple ? `
-									<button class="gallery-nav gallery-prev" onclick="window.changeImage(-1)">‹</button>
-									<button class="gallery-nav gallery-next" onclick="window.changeImage(1)"> ›</button>
+									<button class="gallery-nav gallery-prev" data-action="prev">‹</button>
+									<button class="gallery-nav gallery-next" data-action="next">›</button>
 								` : ''}
 							</div>
 							${currentImg.caption ? `<p class="image-caption">${currentImg.caption}</p>` : ''}
 							${hasMultiple ? `
 								<div class="gallery-dots">
 									${images.map((_, index) => `
-										<span class="gallery-dot ${index === currentIndex ? 'active' : ''}" onclick="window.setImageIndex(${index})"></span>
+										<span class="gallery-dot ${index === currentIndex ? 'active' : ''}" data-action="dot" data-index="${index}"></span>
 									`).join('')}
 								</div>
 								<div class="gallery-counter">${currentIndex + 1} / ${images.length}</div>
@@ -237,13 +237,64 @@ function App() {
 			} else {
 				element.innerHTML = `
 					<div class="popup-content">
-						<button class="popup-closer" onclick="window.closePopup()">×</button>
+						<button class="popup-closer">×</button>
 						<h3>${selectedMarker.name}</h3>
 						${selectedMarker.description ? `<p class="popup-description">${selectedMarker.description}</p>` : ''}
 					</div>
 				`
 			}
+			
+			// 使用事件委托处理所有点击事件
+			const handleClick = (e) => {
+				const target = e.target
+				
+				// 关闭按钮
+				if (target.classList.contains('popup-closer')) {
+					e.stopPropagation()
+					window.closePopup()
+					return
+				}
+				
+				// 图片预览
+				if (target.dataset.action === 'preview') {
+					e.stopPropagation()
+					window.previewImage(target.dataset.src)
+					return
+				}
+				
+				// 上一张
+				if (target.dataset.action === 'prev' || target.classList.contains('gallery-prev')) {
+					e.stopPropagation()
+					window.changeImage(-1)
+					return
+				}
+				
+				// 下一张
+				if (target.dataset.action === 'next' || target.classList.contains('gallery-next')) {
+					e.stopPropagation()
+					window.changeImage(1)
+					return
+				}
+				
+				// 点击圆点
+				if (target.dataset.action === 'dot') {
+					e.stopPropagation()
+					window.setImageIndex(parseInt(target.dataset.index))
+					return
+				}
+			}
+			
+			// 同时绑定 click 和 touchend 事件
+			element.addEventListener('click', handleClick)
+			element.addEventListener('touchend', handleClick)
+			
 			element.style.display = 'block'
+			
+			// 清理函数
+			return () => {
+				element.removeEventListener('click', handleClick)
+				element.removeEventListener('touchend', handleClick)
+			}
 		} else {
 			element.style.display = 'none'
 			overlay.setPosition(undefined)
