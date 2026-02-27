@@ -478,17 +478,75 @@
 	background: white;
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 	transform: translateY(-50%);
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.markers-list.collapsed {
+	transform: translateY(-50%) translateX(calc(100% + 1rem - 50px));
+}
+.markers-list.collapsed h3,
+.markers-list.collapsed .markers-scroll {
+	opacity: 0;
+	pointer-events: none;
 }
 .markers-list h3 {
 	margin: 0 0 1rem;
 	font-size: 1.1rem;
 	color: #333;
+	transition: opacity 0.3s ease-in-out;
+}
+/* 侧边栏展开/收起按钮 */
+.sidebar-toggle {
+	display: flex;
+	position: absolute;
+	left: -15px;
+	top: 50%;
+	z-index: 101;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	border: 2px solid #e0e0e0;
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	background: white;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	line-height: 1;
+	font-size: 1rem;
+	color: #667eea;
+	transform: translateY(-50%);
+	transition: all 0.3s ease-in-out;
+}
+.sidebar-toggle:hover {
+	border-color: #667eea;
+	background: #f8f9ff;
+	box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+	transform: translateY(-50%) scale(1.1);
+}
+.sidebar-toggle:active {
+	transform: translateY(-50%) scale(0.95);
 }
 .markers-scroll {
 	display: flex;
 	overflow-y: auto;
 	flex-direction: column;
-	gap: 0.75rem;
+	gap: 1rem;
+	transition: opacity 0.3s ease-in-out;
+}
+/* 分组样式 */
+.marker-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.group-title {
+	margin: 0;
+	padding: 0.5rem 0.75rem;
+	border-left: 3px solid #667eea;
+	background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+	font-weight: 600;
+	font-size: 0.9rem;
+	color: #667eea;
 }
 .marker-item {
 	display: flex;
@@ -510,6 +568,17 @@
 	width: 60px;
 	height: 60px;
 	object-fit: cover;
+}
+.marker-thumb-empty {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px dashed #ddd;
+	background: linear-gradient(135deg, #f5f5f5 0%, #e9ecef 100%);
+	font-weight: 600;
+	font-size: 0.7rem;
+	color: #aaa;
+	letter-spacing: 0.5px;
 }
 .marker-info {
 	display: flex;
@@ -606,6 +675,24 @@
 		max-width: 100%;
 		max-height: 300px;
 		transform: none;
+	}
+	.markers-list.collapsed {
+		overflow: hidden;
+		max-height: 60px;
+	}
+	.sidebar-toggle {
+		left: 50%;
+		top: 10px;
+		transform: translateX(-50%) rotate(90deg);
+	}
+	.sidebar-toggle:hover {
+		transform: translateX(-50%) rotate(90deg) scale(1.1);
+	}
+	.markers-list.collapsed .sidebar-toggle {
+		transform: translateX(-50%) rotate(-90deg);
+	}
+	.markers-list.collapsed .sidebar-toggle:hover {
+		transform: translateX(-50%) rotate(-90deg) scale(1.1);
 	}
 	.header h1 {
 		font-size: 1.5rem;

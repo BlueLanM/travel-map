@@ -3,10 +3,7 @@
 		{
 			"id": 1,
 			"name": "濮阳",
-			"coords": [
-				115.0295,
-				35.7620
-			],
+			"coords": [115.0295, 35.7620],
 			"description": "家乡",
 			"images": [
 				{
@@ -18,12 +15,97 @@
 		},
 		{
 			"id": 2,
-			"name": "丽江&香格里拉",
-			"coords": [
-				100.22,
-				26.85
+			"name": "杭州",
+			"coords": [120.15, 30.28],
+			"description": "Life",
+			"images": [
+				{
+					"url": "/travel-map/images/hangzhou1.jpg",
+					"caption": "西湖"
+				},
+				{
+					"url": "/travel-map/images/hangzhou2.jpg",
+					"caption": "西湖"
+				},
+				{
+					"url": "/travel-map/images/hangzhou3.jpg",
+					"caption": "三潭映月"
+				}
 			],
-			"description": "云南",
+			"markerColor": "#4CAF50"
+		},
+		{
+			"id": 3,
+			"name": "郑州",
+			"coords": [113.62, 34.74],
+			"description": "Life",
+			"images": [],
+			"markerColor": "#4CAF50"
+		},
+		{
+			"id": 4,
+			"name": "南京",
+			"coords": [118.80, 32.05],
+			"description": "Life",
+			"images": [
+				{
+					"url": "/travel-map/images/nanjing.heic",
+					"caption": "鸡鸣寺"
+				}
+			],
+			"markerColor": "#4CAF50"
+		},
+		{
+			"id": 5,
+			"name": "新乡",
+			"coords": [113.93, 35.30],
+			"description": "Life",
+			"images": [],
+			"markerColor": "#4CAF50"
+		},
+		{
+			"id": 6,
+			"name": "广州",
+			"coords": [113.26, 23.13],
+			"description": "Life",
+			"images": [
+				{
+					"url": "/travel-map/images/guangzhou.jpg",
+					"caption": "广州塔"
+				}
+			],
+			"markerColor": "#4CAF50"
+		},
+		{
+			"id": 7,
+			"name": "日本",
+			"coords": [139.65, 35.68],
+			"description": "Travel",
+			"images": [
+				{
+					"url": "/travel-map/images/Japan1.jpg",
+					"caption": "大阪环球影城"
+				},
+				{
+					"url": "/travel-map/images/Japan2.jpg",
+					"caption": "天守阁"
+				},
+				{
+					"url": "/travel-map/images/Japan3.jpg",
+					"caption": "东京浅草寺"
+				},
+				{
+					"url": "/travel-map/images/Japan4.jpg",
+					"caption": "明治神宫入口"
+				}
+			],
+			"markerColor": "#2196F3"
+		},
+		{
+			"id": 8,
+			"name": "丽江&香格里拉",
+			"coords": [100.22, 26.85],
+			"description": "Travel",
 			"images": [
 				{
 					"url": "/travel-map/images/yunnan1.jpg",
@@ -44,74 +126,66 @@
 				{
 					"url": "/travel-map/images/yunnan5.jpg",
 					"caption": "丽江转角"
-				}
-			]
-		},
-		{
-			"id": 3,
-			"name": "澳門",
-			"coords": [
-				113.54,
-				22.19
-			],
-			"description": "Macau",
-			"images": [
-				{
-					"url": "/travel-map/images/macau1.jpg",
-					"caption": "澳门赌场&一个很好看的场景"
 				},
 				{
-					"url": "/travel-map/images/macau2.jpg",
-					"caption": "澳门"
-				}
-			]
-		},
-		{
-			"id": 4,
-			"name": "香港",
-			"coords": [
-				114.17,
-				22.32
-			],
-			"description": "HONGKONG",
-			"images": [
-				{
-					"url": "/travel-map/images/hongkong1.jpg",
-					"caption": "维多利亚港&落日飞车"
+					"url": "/travel-map/images/yunnan6.jpg",
+					"caption": "云杉坪"
 				},
 				{
-					"url": "/travel-map/images/hongkong2.jpg",
-					"caption": "天星小轮"
-				},
-				{
-					"url": "/travel-map/images/hongkong3.jpg",
-					"caption": "富豪雪糕"
+					"url": "/travel-map/images/yunnan7.jpg",
+					"caption": "嘿嘿"
 				}
-			]
+			],
+			"markerColor": "#2196F3"
 		},
 		{
-			"id": 5,
-			"name": "珠海",
-			"coords": [
-				113.57,
-				22.27
-			],
-			"description": "珠海",
+			"id": 9,
+			"name": "上海",
+			"coords": [121.47, 31.23],
+			"description": "Travel",
 			"images": [
 				{
-					"url": "/travel-map/images/zhuhai.jpg",
-					"caption": "珠海长隆"
+					"url": "/travel-map/images/shanghai1.jpg",
+					"caption": "经典三件套"
+				},
+				{
+					"url": "/travel-map/images/shanghai2.jpg",
+					"caption": "外滩"
 				}
-			]
+			],
+			"markerColor": "#2196F3"
 		},
 		{
-			"id": 6,
+			"id": 10,
+			"name": "绍兴",
+			"coords": [120.58, 30.03],
+			"description": "Travel",
+			"images": [
+				{
+					"url": "/travel-map/images/shaoxing.jpg",
+					"caption": "绍兴"
+				}
+			],
+			"markerColor": "#2196F3"
+		},
+		{
+			"id": 11,
+			"name": "湖州",
+			"coords": [120.09, 30.89],
+			"description": "Travel",
+			"images": [
+				{
+					"url": "/travel-map/images/huzhou.jpg",
+					"caption": "湖州"
+				}
+			],
+			"markerColor": "#2196F3"
+		},
+		{
+			"id": 12,
 			"name": "厦门",
-			"coords": [
-				118.08,
-				24.47
-			],
-			"description": "厦门",
+			"coords": [118.08, 24.47],
+			"description": "Travel",
 			"images": [
 				{
 					"url": "/travel-map/images/xiamen1.jpg",
@@ -124,157 +198,72 @@
 				{
 					"url": "/travel-map/images/xiamen3.jpg",
 					"caption": "海边"
-				}
-			]
-		},
-		{
-			"id": 7,
-			"name": "上海",
-			"coords": [
-				121.47,
-				31.23
-			],
-			"description": "上海",
-			"images": [
-				{
-					"url": "/travel-map/images/shanghai1.jpg",
-					"caption": "经典三件套"
 				},
 				{
-					"url": "/travel-map/images/shanghai2.jpg",
-					"caption": "外滩"
+					"url": "/travel-map/images/xiamen4.jpg",
+					"caption": "美食"
 				}
-			]
-		},
-		{
-			"id": 8,
-			"name": "杭州",
-			"coords": [
-				120.15,
-				30.28
 			],
-			"description": "杭州",
-			"images": [
-				{
-					"url": "/travel-map/images/hangzhou1.jpg",
-					"caption": "西湖"
-				},
-				{
-					"url": "/travel-map/images/hangzhou2.jpg",
-					"caption": "西湖"
-				},
-				{
-					"url": "/travel-map/images/hangzhou3.jpg",
-					"caption": "三潭映月"
-				}
-			]
-		},
-		{
-			"id": 9,
-			"name": "绍兴",
-			"coords": [
-				120.58,
-				30.03
-			],
-			"description": "绍兴",
-			"images": [
-				{
-					"url": "/travel-map/images/shaoxing.jpg",
-					"caption": "绍兴"
-				}
-			]
-		},
-		{
-			"id": 10,
-			"name": "湖州",
-			"coords": [
-				120.09,
-				30.89
-			],
-			"description": "湖州",
-			"images": [
-				{
-					"url": "/travel-map/images/huzhou.jpg",
-					"caption": "湖州"
-				}
-			]
-		},
-		{
-			"id": 11,
-			"name": "日本",
-			"coords": [
-				139.65,
-				35.68
-			],
-			"description": "日本",
-			"images": [
-				{
-					"url": "/travel-map/images/Japan1.jpg",
-					"caption": "大阪环球影城"
-				},
-				{
-					"url": "/travel-map/images/Japan2.jpg",
-					"caption": "天守阁"
-				},
-				{
-					"url": "/travel-map/images/Japan3.jpg",
-					"caption": "东京浅草寺"
-				},
-				{
-					"url": "/travel-map/images/Japan4.jpg",
-					"caption": "明治神宫入口"
-				}
-			]
-		},
-		{
-			"id": 12,
-			"name": "郑州",
-			"coords": [
-				113.62,
-				34.74
-			],
-			"description": "郑州",
-			"images": []
+			"markerColor": "#2196F3"
 		},
 		{
 			"id": 13,
-			"name": "南京",
-			"coords": [
-				118.80,
-				32.05
-			],
-			"description": "南京",
+			"name": "珠海",
+			"coords": [113.57, 22.27],
+			"description": "Travel",
 			"images": [
 				{
-					"url": "/travel-map/images/nanjing.heic",
-					"caption": "鸡鸣寺"
+					"url": "/travel-map/images/zhuhai1.jpg",
+					"caption": "珠海长隆"
+				},
+				{
+					"url": "/travel-map/images/zhuhai2.jpg",
+					"caption": "珠海长隆"
 				}
-			]
+			],
+			"markerColor": "#2196F3"
 		},
 		{
 			"id": 14,
-			"name": "新乡",
-			"coords": [
-				113.93,
-				35.30 
+			"name": "香港",
+			"coords": [114.17, 22.32],
+			"description": "Travel",
+			"images": [
+				{
+					"url": "/travel-map/images/hongkong1.jpg",
+					"caption": "维多利亚港&落日飞车"
+				},
+				{
+					"url": "/travel-map/images/hongkong2.jpg",
+					"caption": "天星小轮"
+				},
+				{
+					"url": "/travel-map/images/hongkong3.jpg",
+					"caption": "美食"
+				}
 			],
-			"description": "新乡",
-			"images": []
+			"markerColor": "#2196F3"
 		},
 		{
 			"id": 15,
-			"name": "广州",
-			"coords": [
-				113.26,
-				23.13
-			],
-			"description": "广州",
+			"name": "澳門",
+			"coords": [113.54, 22.19],
+			"description": "Travel",
 			"images": [
 				{
-					"url": "/travel-map/images/guangzhou.jpg",
-					"caption": "广州塔"
+					"url": "/travel-map/images/macau1.jpg",
+					"caption": "澳门赌场&一个很好看的场景"
+				},
+				{
+					"url": "/travel-map/images/macau2.jpg",
+					"caption": "澳门"
+				},
+				{
+					"url": "/travel-map/images/macau3.jpg",
+					"caption": "好吃"
 				}
-			]
+			],
+			"markerColor": "#2196F3"
 		}
 	]
 }

@@ -27,6 +27,7 @@ function App() {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0) // 当前查看的图片索引
 	const [mapType, setMapType] = useState('roadmap') // 地图类型：roadmap, satellite, hybrid, terrain
 	const tileLayerRef = useRef(null) // 存储瓦片图层引用
+	const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false) // 侧边栏展开/收起状态
 
 	// 从 JSON 文件加载数据
 	useEffect(() => {
@@ -459,43 +460,141 @@ function App() {
 
 			{/* 标记列表 */}
 			{markers.length > 0 && (
-				<div className="markers-list">
+				<div className={`markers-list ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+					<button 
+						className="sidebar-toggle" 
+						onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+						title={isSidebarCollapsed ? '展开侧边栏' : '收起侧边栏'}
+					>
+						{isSidebarCollapsed ? '◀' : '▶'}
+					</button>
 					<h3>我去过的地方 ({markers.length})</h3>
 					<div className="markers-scroll">
-						{markers.map((marker) => {
-							const firstImage = getFirstImage(marker)
-							return (
-								<div
-									key={marker.id}
-									className="marker-item"
-									onClick={() => {
-										mapInstance.current.getView().animate({
-											center: fromLonLat(marker.coords),
-											zoom: 10,
-											duration: 1000,
-										})
-									}}
-								>
-									{firstImage && (
-										<img 
-											src={firstImage} 
-											alt={marker.name} 
-											className="marker-thumb"
-											onClick={(e) => {
-												e.stopPropagation()
-												setPreviewImage(firstImage)
+						{/* 家乡分组 */}
+						{markers.filter(m => m.description === '家乡').length > 0 && (
+							<div className="marker-group">
+								<h4 className="group-title">🏠 Home</h4>
+								{markers.filter(m => m.description === '家乡').map((marker) => {
+									const firstImage = getFirstImage(marker)
+									return (
+										<div
+											key={marker.id}
+											className="marker-item"
+											onClick={() => {
+												mapInstance.current.getView().animate({
+													center: fromLonLat(marker.coords),
+													zoom: 10,
+													duration: 1000,
+												})
 											}}
-										/>
-									)}
-									<div className="marker-info">
-										<strong>{marker.name}</strong>
-										{marker.description && (
-											<small>{marker.description.substring(0, 50)}</small>
-										)}
-									</div>
-								</div>
-							)
-						})}
+										>
+											{firstImage ? (
+												<img 
+													src={firstImage} 
+													alt={marker.name} 
+													className="marker-thumb"
+													onClick={(e) => {
+														e.stopPropagation()
+														setPreviewImage(firstImage)
+													}}
+												/>
+											) : (
+												<div className="marker-thumb marker-thumb-empty">
+													EMPTY
+												</div>
+											)}
+											<div className="marker-info">
+												<strong>{marker.name}</strong>
+											</div>
+										</div>
+									)
+								})}
+							</div>
+						)}
+
+						{/* Life 分组 */}
+						{markers.filter(m => m.description === 'Life').length > 0 && (
+							<div className="marker-group">
+								<h4 className="group-title">💻 Life ({markers.filter(m => m.description === 'Life').length})</h4>
+								{markers.filter(m => m.description === 'Life').map((marker) => {
+									const firstImage = getFirstImage(marker)
+									return (
+										<div
+											key={marker.id}
+											className="marker-item"
+											onClick={() => {
+												mapInstance.current.getView().animate({
+													center: fromLonLat(marker.coords),
+													zoom: 10,
+													duration: 1000,
+												})
+											}}
+										>
+											{firstImage ? (
+												<img 
+													src={firstImage} 
+													alt={marker.name} 
+													className="marker-thumb"
+													onClick={(e) => {
+														e.stopPropagation()
+														setPreviewImage(firstImage)
+													}}
+												/>
+											) : (
+												<div className="marker-thumb marker-thumb-empty">
+													EMPTY
+												</div>
+											)}
+											<div className="marker-info">
+												<strong>{marker.name}</strong>
+											</div>
+										</div>
+									)
+								})}
+							</div>
+						)}
+
+						{/* Travel 分组 */}
+						{markers.filter(m => m.description === 'Travel').length > 0 && (
+							<div className="marker-group">
+								<h4 className="group-title">✈️ Travel ({markers.filter(m => m.description === 'Travel').length})</h4>
+								{markers.filter(m => m.description === 'Travel').map((marker) => {
+									const firstImage = getFirstImage(marker)
+									return (
+										<div
+											key={marker.id}
+											className="marker-item"
+											onClick={() => {
+												mapInstance.current.getView().animate({
+													center: fromLonLat(marker.coords),
+													zoom: 10,
+													duration: 1000,
+												})
+											}}
+										>
+											{firstImage ? (
+												<img 
+													src={firstImage} 
+													alt={marker.name} 
+													className="marker-thumb"
+													onClick={(e) => {
+														e.stopPropagation()
+														setPreviewImage(firstImage)
+													}}
+												/>
+											) : (
+												<div className="marker-thumb marker-thumb-empty">
+													EMPTY
+												</div>
+											)}
+											<div className="marker-info">
+												<strong>{marker.name}</strong>
+											</div>
+										</div>
+									)
+								})}
+							</div>
+						)}
 					</div>
 				</div>
 			)}
