@@ -1,0 +1,33 @@
+schema: spec-driven
+
+# Project context (optional)
+# This is shown to AI when creating artifacts.
+# Add your tech stack, conventions, style guides, domain knowledge, etc.
+context: |
+  Tech stack: React, Vite, JavaScript
+  Project: Travel Map - 一个展示旅行地点的交互式地图应用
+  Domain: 个人旅行记录可视化
+  UI: 现代化响应式设计
+  
+  Core Principles:
+  1. Data Integrity - 所有旅行记录必须准确、完整且持久化
+  2. User Experience Excellence - 地图界面提供流畅、直观的导航和可视化
+  3. Simplicity & Maintainability - 代码库保持简单、可读且易于维护
+  
+  Design Guidelines:
+  - 地图渲染和交互必须响应迅速（用户操作 < 100ms）
+  - 优先考虑清晰度和可读性
+  - 移动端和桌面端都需完全功能
+  - 最小化依赖，避免不必要的复杂性
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+rules:
+  proposal:
+    - Keep proposals clear and concise
+    - Always validate against Core Principles
+    - Consider maintenance burden of new features
+  tasks:
+    - Break tasks into manageable chunks
+    - Ensure data integrity in all changes
+    - Test both mobile and desktop experiences

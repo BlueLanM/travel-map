@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import Map from 'ol/Map'
 import View from 'ol/View'
 import TileLayer from 'ol/layer/Tile'
-import OSM from 'ol/source/OSM'
+import XYZ from 'ol/source/XYZ'
 import { fromLonLat, toLonLat } from 'ol/proj'
 import { Vector as VectorLayer } from 'ol/layer'
 import { Vector as VectorSource } from 'ol/source'
@@ -25,6 +25,8 @@ function App() {
 	const [hoveredMarker, setHoveredMarker] = useState(null)
 	const [previewImage, setPreviewImage] = useState(null) // 图片预览状态
 	const [currentImageIndex, setCurrentImageIndex] = useState(0) // 当前查看的图片索引
+	const [mapType, setMapType] = useState('roadmap') // 地图类型：roadmap, satellite, hybrid, terrain
+	const tileLayerRef = useRef(null) // 存储瓦片图层引用
 
 	// 从 JSON 文件加载数据
 	useEffect(() => {
@@ -65,18 +67,26 @@ function App() {
 			source: vectorSource,
 		})
 
-		// 创建地图
+		// 创建瓦片图层
+		const tileLayer = new TileLayer({
+			source: new XYZ({
+				url: 'https://mt{0-3}.google.com/vt/lyrs=m&hl=zh-CN&gl=cn&x={x}&y={y}&z={z}',
+				attributions: '© Google Maps',
+				crossOrigin: 'anonymous',
+				maxZoom: 20,
+			}),
+		})
+		tileLayerRef.current = tileLayer
+
+		// 创建地图 - 使用中文地图服务（全球详细地图 + 中文地名）
 		const map = new Map({
 			target: mapRef.current,
-			layers: [
-				new TileLayer({
-					source: new OSM(),
-				}),
-				vectorLayer,
-			],
+			layers: [tileLayer, vectorLayer],
 			view: new View({
 				center: fromLonLat([115.03, 35.76]), // 濮阳坐标
 				zoom: 4,
+				maxZoom: 25, // 最大缩放级别
+				minZoom: 3,  // 最小缩放级别
 			}),
 		})
 
@@ -368,11 +378,81 @@ function App() {
 		}
 	}, [selectedMarker])
 
+	// 切换地图类型
+	useEffect(() => {
+		if (!tileLayerRef.current) return
+
+		// 地图类型参数说明：
+		// Google Maps:
+		//   m = 标准路线图（中文）
+		//   y = 卫星图（带标注，混合）
+		//   p = 地形图（带标注）
+		// 高德地图:
+		//   style=8 = 标准地图
+		//   style=6 = 卫星图
+		//   交通路况需要叠加实时路况图层
+		// const amapKey = import.meta.env.VITE_AMAP_KEY || '5fc6838c280d65dff828f6b092b94057'
+		
+		const mapTypeUrls = {
+			roadmap: 'https://mt{0-3}.google.com/vt/lyrs=m&hl=zh-CN&gl=cn&x={x}&y={y}&z={z}',
+			hybrid: 'https://mt{0-3}.google.com/vt/lyrs=y&hl=zh-CN&gl=cn&x={x}&y={y}&z={z}',
+			terrain: 'https://mt{0-3}.google.com/vt/lyrs=p&hl=zh-CN&gl=cn&x={x}&y={y}&z={z}',
+			// // 高德卫星混合图（卫星影像+道路标注，中国地区）
+			// satellite: `https://webst0{1-4}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}&key=${amapKey}`,
+		}
+
+		const newSource = new XYZ({
+			url: mapTypeUrls[mapType],
+			attributions: '© Google Maps',
+			crossOrigin: 'anonymous',
+			maxZoom: 20,
+		})
+
+		tileLayerRef.current.setSource(newSource)
+		
+		// 强制刷新地图
+		if (mapInstance.current) {
+			mapInstance.current.render()
+		}
+	}, [mapType])
+
 	return (
 		<div className="app-container">
 			<div className="header">
 				<h1>LanM旅行地图</h1>
 				<p>点击地图标记查看详情</p>
+			</div>
+
+			{/* 地图类型切换按钮 */}
+			<div className="map-type-selector">
+				<button 
+					className={mapType === 'roadmap' ? 'active' : ''} 
+					onClick={() => setMapType('roadmap')}
+					title="标准地图"
+				>
+					🗺️ 标准
+				</button>
+				{/* <button 
+					className={mapType === 'satellite' ? 'active' : ''} 
+					onClick={() => setMapType('satellite')}
+					title="卫星混合图（高德-卫星+路注）"
+				>
+					🛰️ 卫星
+				</button> */}
+				<button 
+					className={mapType === 'hybrid' ? 'active' : ''} 
+					onClick={() => setMapType('hybrid')}
+					title="混合视图"
+				>
+					🌍 混合
+				</button>
+				<button 
+					className={mapType === 'terrain' ? 'active' : ''} 
+					onClick={() => setMapType('terrain')}
+					title="地形图"
+				>
+					⛰️ 地形
+				</button>
 			</div>
 
 			<div ref={mapRef} className="map-container" />

@@ -89,6 +89,46 @@
 	flex: 1;
 	width: 100%;
 }
+/* 地图类型切换按钮样式 */
+.map-type-selector {
+	display: flex;
+	position: absolute;
+	left: auto;
+	top: 18rem;
+	z-index: 100;
+	flex-direction: column;
+	padding: 0.75rem;
+	border-radius: 12px;
+	background: white;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+	gap: 0.5rem;
+}
+.map-type-selector button {
+	display: flex;
+	align-items: center;
+	padding: 0.75rem 1rem;
+	border: 2px solid #e0e0e0;
+	border-radius: 8px;
+	background: white;
+	cursor: pointer;
+	font-weight: 500;
+	font-size: 0.9rem;
+	color: #666;
+	white-space: nowrap;
+	transition: all 0.2s;
+	gap: 0.5rem;
+}
+.map-type-selector button:hover {
+	border-color: #667eea;
+	background: #f8f9ff;
+	transform: translateX(4px);
+}
+.map-type-selector button.active {
+	border-color: #667eea;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+	color: white;
+}
 /* 模态框样式 */
 .modal-overlay {
 	display: flex;
@@ -573,5 +613,14 @@
 	.image-preview-close {
 		right: 10px;
 		top: 10px;
+	}
+	.map-type-selector {
+		left: 0.5rem;
+		top: 6rem;
+		padding: 0.5rem;
+	}
+	.map-type-selector button {
+		padding: 0.6rem 0.8rem;
+		font-size: 0.85rem;
 	}
 }
